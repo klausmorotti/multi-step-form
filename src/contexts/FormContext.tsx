@@ -9,12 +9,12 @@ type ContextType = {
 }
 
 // TYPE DATA INITIALS
-type initialDataType = {
+export type initialDataType = {
     step:number;
     name:string;
     level:number;
+    email:string;
     github:string;
-    linkedin:string;
 }
 
 // DATA INITIALS 
@@ -22,8 +22,8 @@ const initialData: initialDataType = {
     step:1,
     name:'',
     level:0,
-    github:'',
-    linkedin:''
+    email:'',
+    github:''
 }
 
 // TYPE REDUCER ACTIONS
@@ -41,8 +41,8 @@ export enum FormActions {
     setStep,
     setName, 
     setLevel,
-    setGithub,
-    setLinkedIn
+    setEmail,
+    setGithub
 }
 
 // REDUCER FUNCTIONS
@@ -54,10 +54,10 @@ const FormReducer = (formState: initialDataType, actionsState: reducerActions) =
             return { ...formState, name: actionsState.payload };
         case FormActions.setLevel:
             return { ...formState, level: actionsState.payload };
+        case FormActions.setEmail:
+            return { ...formState, email: actionsState.payload };
         case FormActions.setGithub:
             return { ...formState, github: actionsState.payload };
-        case FormActions.setLinkedIn:
-            return { ...formState, linkedin: actionsState.payload };
         default:
             return formState;
     }
