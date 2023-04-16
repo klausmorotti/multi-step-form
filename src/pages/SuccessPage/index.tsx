@@ -3,9 +3,14 @@ import { Container } from "./styles"
 // IMAGES AND ICONS
 import CheckedIcon from '../../assets/checked.png';
 
+// HOOKS
+import { useNavigate } from "react-router-dom";
+
 export const SuccessPage = () => {
+    const navigate = useNavigate();
 
     const goToInit = () => {
+        navigate('/');
         location.reload();
     }
 
