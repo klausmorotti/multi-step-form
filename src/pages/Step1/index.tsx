@@ -10,9 +10,6 @@ import { FormActions, useFormContext } from "../../contexts/FormContext";
 import { ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// REACT HOOK FORM
-import { useForm } from "react-hook-form";
-
 export const Step1 = () => {
     const { formState, formDispatch } = useFormContext();
     const navigate = useNavigate();
