@@ -2,15 +2,16 @@ import { Theme } from "../../components/Theme";
 import { Container } from "./styles";
 
 // CONTEXT
-import { FormActions, useForm } from "../../contexts/FormContext"
+import { FormActions, useFormContext } from "../../contexts/FormContext"
 import { ChangeEvent, useEffect } from "react";
 
 // HOOKS
 import { useNavigate } from "react-router-dom";
 
 export const Step3 = () => {
-    const { formState, formDispatch } = useForm();
+    const { formState, formDispatch } = useFormContext();
     const navigate = useNavigate();
+    let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
     useEffect(() => {
         formDispatch({type:FormActions.setStep, payload:3});
@@ -28,10 +29,13 @@ export const Step3 = () => {
     const nextStep = () => {
         if( formState.email === '' ) {
             alert('Informe seu email');
+        } else if ( !regex.test(formState.email.toLowerCase()) ) {
+            alert('Você deve inserir um email válido');
         } else if ( formState.github === '' ) {
             alert('Informe seu Github');
         } else {
-            navigate('/step3');
+            console.log(formState);
+            navigate('/success');
         }
     }
 
@@ -40,7 +44,7 @@ export const Step3 = () => {
             <Container>
                 
                 <div className="instructions">
-                    <span>Passo 3/3</span>
+                    <span>Passo 3/3 - Contato</span>
                     <h2>Legal Klaus, Onde te achamos?</h2>
                     <p>Preencha com seus contatos para conseguirmos entrar em contato</p>
                 </div>
@@ -65,8 +69,10 @@ export const Step3 = () => {
                     onChange={ (e: ChangeEvent<HTMLInputElement>) => changeGithub(e.target.value) }
                     />
 
-                    <button onClick={lastStep}>Voltar</button>
-                    <button onClick={nextStep}>Finalizar Cadastro</button>
+                    <div className="buttons">
+                        <button onClick={lastStep}>Voltar</button>
+                        <button onClick={nextStep}>Finalizar Cadastro</button>
+                    </div>
 
                 </form>
 

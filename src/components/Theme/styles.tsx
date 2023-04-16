@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-    height:100vh;
-    background-color:#02044A;
+    min-height:100vh;
+    height:100%;
+    background-color:#F4F5FC;
 
     .generalContent {
         max-width:1600px;
@@ -13,11 +14,20 @@ export const Container = styled.section`
 
         .container {
             display:flex;
-            height:700px;
+            min-height:700px;
+            height:100%;
+
+            @media (max-width:800px) {
+                flex-direction:column;
+            }
 
             .formArea {
                 padding:50px 0 50px 50px;
                 flex:1;
+
+                @media (max-width:800px) {
+                    padding:20px;
+                }
             }
         }
     }

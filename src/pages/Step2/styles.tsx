@@ -4,19 +4,19 @@ export const Container = styled.article`
     
     .instructions {
         padding:30px 0;
-        border-bottom:1px solid #CCC;
+        border-bottom:1px solid #3936B9;
 
         span {
             font-size:20px;
-            color:#CCC;
+            color:#373737;
         }
         h2 {
             font-size:30px;
-            color: #fff;
+            color: #3936B9;
             margin:10px 0;
         }
         p {
-            color: #ccc;
+            color: #373737;
             font-size:18px;
         }
     }
@@ -25,20 +25,42 @@ export const Container = styled.article`
         margin-top:50px;
     }
 
-    button {
+    .buttons {
+        display:flex;
+
+        @media (max-width:500px) {
+            flex-direction:column-reverse;
+        }
+
+        button {
             margin-left:30px;
             margin-top:30px;
             border-radius:20px;
-            color: #fff;
+            color: #373737;
             font-size:18px;
             font-family:'Poppins';
             cursor:pointer;
             background-color:transparent;
+            transition: all ease .5s;
+            text-align:center;
+
+            @media (max-width:500px) {
+                margin:0;
+            }
         }
         button:last-child {
             width:200px;
-            background-color:#25CD8A;
+            background-color:#3936B9;
             padding:15px;
-            
+            color:#FFF;
+
+            @media (max-width:500px) {
+                width:100%;
+                margin-bottom:20px;
+            }
         }
+        button:last-child:hover {
+            box-shadow:0 8px 30px #3936B9;
+        }
+    }
 `;

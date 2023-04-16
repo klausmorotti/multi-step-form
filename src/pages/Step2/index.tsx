@@ -2,7 +2,7 @@ import { Container } from "./styles";
 import { Theme } from "../../components/Theme";
 
 // CONTEXT
-import { FormActions, useForm } from "../../contexts/FormContext";
+import { FormActions, useFormContext } from "../../contexts/FormContext";
 
 // HOOKS
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ import { SelectOption } from "../../components/SelectOption";
 
 
 export const Step2 = () => {
-    const { formState, formDispatch } = useForm();
+    const { formState, formDispatch } = useFormContext();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -39,7 +39,7 @@ export const Step2 = () => {
             <Container>
                 
                 <div className="instructions">
-                    <span>Passo 2/3</span>
+                    <span>Passo 2/3 - Profissional</span>
                     <h2>{formState.name}, o que melhor descreve você?</h2>
                     <p>Escolha a opção que melhor condiz com seu estado aqui, profissionalmente</p>
                 </div>
@@ -62,8 +62,10 @@ export const Step2 = () => {
                         onclick={() => changeLevel(2)}
                     />
 
-                    <button onClick={lastStep}>Voltar</button>
-                    <button onClick={nextStep}>Avançar</button>
+                    <div className="buttons">
+                        <button onClick={lastStep}>Voltar</button>
+                        <button onClick={nextStep}>Avançar</button>
+                    </div>
 
                 </div>
 

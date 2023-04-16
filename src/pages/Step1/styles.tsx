@@ -4,19 +4,19 @@ export const Container = styled.article`
 
     .instructions {
         padding:30px 0;
-        border-bottom:1px solid #CCC;
+        border-bottom:1px solid #3936B9;
 
         span {
             font-size:20px;
-            color:#CCC;
+            color:#373737;
         }
         h2 {
             font-size:30px;
-            color: #fff;
+            color: #3936B9;
             margin:10px 0;
         }
         p {
-            color: #ccc;
+            color: #373737;
             font-size:18px;
         }
     }
@@ -24,7 +24,7 @@ export const Container = styled.article`
         margin-top:50px;
 
         label {
-            color:#FFF
+            color:#373737
         }
         input {
             width:100%;
@@ -33,11 +33,11 @@ export const Container = styled.article`
             display:flex;
             margin-top:10px;
             background-color:transparent;
-            border:2px solid #25CD8A;
+            border:2px solid #3936B9;
             border-radius:10px;
             outline:0;
-            caret-color:#FFF;
-            color: #fff;
+            caret-color:#373737;
+            color: #373737;
             font-size:18px;
             font-family:'Poppins';
         }
@@ -46,11 +46,19 @@ export const Container = styled.article`
             margin-top:30px;
             padding:15px;
             border-radius:20px;
-            background-color:#25CD8A;
+            background-color:#3936B9;
             color: #fff;
             font-size:18px;
             font-family:'Poppins';
             cursor:pointer;
+            transition:all ease .5s;
+
+            @media (max-width:500px) {
+                width:100%;
+            }
+        }
+        button:hover {
+            box-shadow:0 8px 30px #3936B9;
         }
     }
 `;

@@ -1,18 +1,26 @@
 import { Container } from "./styles";
 
 // IMAGES AND ICONS
-import  ProfileIcon  from '../../assets/profile.svg';
+import  ProfileIcon from '../../assets/profile.svg';
 import  BookIcon  from '../../assets/book.svg';
 import  MailIcon from '../../assets/mail.svg';
 
+// CONTEXT
+import { useFormContext } from "../../contexts/FormContext";
+
+// HOOKS
+import { Link } from "react-router-dom";
+
 
 export const Sidebar = () => {
+    const { formState } = useFormContext();
+    
     return (
-        <Container>
+        <Container step={formState.step}>
             
             <div className="steps">
 
-                <div className="step">
+                <Link className="step" to="/">
                     <div className="info">
                         <h3>Pessoal</h3>
                         <p>Se indentifique</p>
@@ -21,9 +29,9 @@ export const Sidebar = () => {
                         <img src={ProfileIcon} alt="Ícone Usuário" />
                     </div>
                     <div className="ballStep"></div>
-                </div>
+                </Link>
 
-                <div className="step">
+                <Link className="step" to="/step2">
                     <div className="info">
                         <h3>Profissional</h3>
                         <p>Seu nivel</p>
@@ -32,9 +40,9 @@ export const Sidebar = () => {
                         <img src={BookIcon} alt="Ícone Livro" />
                     </div>
                     <div className="ballStep"></div>
-                </div>
+                </Link>
 
-                <div className="step">
+                <Link className="step" to="/step3">
                     <div className="info">
                         <h3>Contatos</h3>
                         <p>Como te achar</p>
@@ -43,7 +51,7 @@ export const Sidebar = () => {
                         <img src={MailIcon} alt="Ícone Email" />
                     </div>
                     <div className="ballStep"></div>
-                </div>
+                </Link>
 
             </div>
 

@@ -76,7 +76,7 @@ export const FormProvider = ({children}: FormProviderProps) => {
 }
 
 // CONTEXT HOOK 
-export const useForm = () => {
+export const useFormContext = () => {
     const context = useContext(FormContext);
     if ( context === undefined ) {
         throw new Error('O useForm precisa estar dentro do form provider');

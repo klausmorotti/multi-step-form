@@ -7,16 +7,18 @@ import { Step3 } from './pages/Step3';
 import { SuccessPage } from './pages/SuccessPage';
 
 // VALIDATION
-import { RequireAuth } from './contexts/RequireAuth';
+import { RequireStep1 } from './contexts/RequireAuth';
+import { RequireStep2 } from './contexts/RequireAuth';
+import { RequireStep3 } from './contexts/RequireAuth';
 
 export const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={ <Step1 /> } />
-                <Route path="/step2" element={ <Step2 /> }/>
-                <Route path="/step3" element={ <Step3 /> }/>
-                <Route path="/sucesso" element={ <SuccessPage /> }/>
+                <Route path="/step2" element={ <RequireStep1 children={ <Step2 /> } /> }/>
+                <Route path="/step3" element={ <RequireStep2 children={ <Step3 /> } /> }/>
+                <Route path="/success" element={ <RequireStep3 children={ <SuccessPage /> } /> }/>
             </Routes>
         </BrowserRouter>
     )

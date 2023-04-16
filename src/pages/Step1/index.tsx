@@ -4,14 +4,17 @@ import { Container } from "./styles";
 import { Theme } from "../../components/Theme";
 
 // CONTEXT
-import { FormActions, useForm } from "../../contexts/FormContext";
+import { FormActions, useFormContext } from "../../contexts/FormContext";
 
 // HOOKS
 import { ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+// REACT HOOK FORM
+import { useForm } from "react-hook-form";
+
 export const Step1 = () => {
-    const { formState, formDispatch } = useForm();
+    const { formState, formDispatch } = useFormContext();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -24,6 +27,8 @@ export const Step1 = () => {
     const nextStep = () => {
         if( formState.name === '' ) {
             alert('Preencha seu nome');
+        } else if ( formState.name.length < 2 ) {
+            alert('Seu nome deve conter no mínimo 2 caracteres');
         } else {
             navigate('/step2');
         }
@@ -34,12 +39,12 @@ export const Step1 = () => {
             <Container>
 
                     <div className="instructions">
-                        <span>Passo 1/3</span>
+                        <span>Passo 1/3 - Pessoal</span>
                         <h2>Vamos começar com seu nome</h2>
                         <p>Preencha o campo abaixo com seu nome completo</p>
                     </div>
 
-                    <form onSubmit={ e => e.preventDefault() } action="">
+                    <form onSubmit={ e => e.preventDefault() }>
                         <label htmlFor="name">Seu nome completo</label>
                         
                         <input 
